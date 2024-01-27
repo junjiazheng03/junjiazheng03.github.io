@@ -1,40 +1,18 @@
-const myHeading = document.querySelector("h1");
-myHeading.textContent = "Hello world!";
-
-const myImage = document.querySelector("img");
-
-myImage.onclick = () => {
-    const mySrc = myImage.getAttribute("src");
-    if (mySrc === "images/arrow.png") {
-        myImage.setAttribute("src", "images/worried.png");
-    } else {
-        myImage.setAttribute("src", "images/arrow.png");
-    }
-};
-
 // Personalized welcome message code
 
 let myButton = document.querySelector('button');
 let myHeading = document.querySelector('h1');
+let images = document.querySelectorAll('img');
 
-function setUserName() {
-  let myName = prompt('Please enter your name.');
-  if(!myName) {
-    setUserName();
-  } else {
-    localStorage.setItem('name', myName);
-    myHeading.innerHTML = 'Mozilla is cool, ' + myName;
-  }
+images.forEach(function(image) {
+    image.addEventListener("click", function () {
+        prompt("Ouch! Stop poking me! Now you have to tell me your favorite number: ");
+        alert("I dare you to touch the button below me.");
+    });
+});
+
+function myFunction() {
+    alert("that does absolutely nothing...");
 }
 
-if(!localStorage.getItem('name')) {
-  setUserName();
-} else {
-  let storedName = localStorage.getItem('name');
-  myHeading.innerHTML = 'Mozilla is cool, ' + storedName;
-}
-
-myButton.onclick = function() {
-  setUserName();
-}
 
